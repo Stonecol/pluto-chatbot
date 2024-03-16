@@ -1,0 +1,14 @@
+.input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 1rem);
+  display: block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.chat-container {
+  display: flex;
+  justify-content: center;
+}
