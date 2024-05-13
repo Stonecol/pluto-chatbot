@@ -9,7 +9,7 @@ import {
 } from "@chainlit/react-client";
 import { useRecoilValue } from "recoil";
 
-const CHAINLIT_SERVER = "http://localhost:8000";
+const CHAINLIT_SERVER = "https://api-pluto-backend.onrender.com";
 const userEnv = {};
 
 const apiClient = new ChainlitAPI(CHAINLIT_SERVER);
@@ -33,7 +33,7 @@ function App() {
           accessToken: `Bearer: ${data.token}`,
         });
       });
-  }, [session, connect]);
+  }, [connect]);
 
   return (
     <>
