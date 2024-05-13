@@ -1,12 +1,16 @@
-import InputField from "../components/InputField";
-import MessageCard from "../components/Messages";
+import { Box } from "@mui/material";
+import InputField from "../InputField";
+import MessageCard from "../Messages";
+
 import "./index.css";
+
 const Playground = () => {
   return (
     <>
-      <div className="chat-container">
+      <Box justifyContent="center">
         <MessageCard />
-      </div>
+      </Box>
+
       <div className="input-container">
         <InputField />
       </div>

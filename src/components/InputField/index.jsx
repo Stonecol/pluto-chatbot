@@ -6,12 +6,31 @@ import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined
 import { useState } from "react";
 import { Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import { v4 as uuidv4 } from "uuid";
+import { useChatInteract } from "@chainlit/react-client";
 const InputField = () => {
   const [userInput, setUserInput] = useState("");
-  const handleSend = () => {
-    console.log(userInput);
-    setUserInput("");
+  const { sendMessage } = useChatInteract();
+  const handleEnter = (e) => {
+    if (e.key == "Enter") {
+      handleSendMessage();
+    }
   };
+  const handleSendMessage = () => {
+    const content = userInput.trim();
+    if (content) {
+      const message = {
+        id: uuidv4(),
+        name: "user",
+        type: "user_message",
+        output: content,
+        createdAt: new Date().toISOString(),
+      };
+      sendMessage(message, []);
+      setUserInput("");
+    }
+  };
+
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -27,6 +46,7 @@ const InputField = () => {
           onChange={(e) => {
             setUserInput(e.target.value);
           }}
+          onKeyDown={(e) => handleEnter(e)}
           inputProps={{ style: { fontSize: "1.4rem" } }}
         />
         <Button
@@ -37,7 +57,7 @@ const InputField = () => {
           }}
           endIcon={<SendIcon />}
           variant="contained"
-          onClick={handleSend}
+          onClick={handleSendMessage}
         >
           Send
         </Button>
