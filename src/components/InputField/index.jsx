@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { v4 as uuidv4 } from "uuid";
 import { useChatInteract } from "@chainlit/react-client";
@@ -35,7 +35,7 @@ const InputField = () => {
     <>
       <Box sx={{ display: "flex", alignItems: "flex-end" }}>
         <TravelExploreOutlinedIcon
-          sx={{ color: "#66b2ff", mr: 1, my: 0.5, fontSize: "3.5rem" }}
+          sx={{ color: "#1976d2", mr: 1, my: 0.5, fontSize: "3.5rem" }}
         />
         <TextField
           id="input-with-sx"
@@ -49,18 +49,22 @@ const InputField = () => {
           onKeyDown={(e) => handleEnter(e)}
           inputProps={{ style: { fontSize: "1.4rem" } }}
         />
-        <Button
+        <IconButton
           sx={{
             mx: "1rem",
             height: "3.4rem",
+            width: "3.4rem",
             mb: "0.3rem",
+            backgroundColor: "primary.main",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "primary.dark",
+            },
           }}
-          endIcon={<SendIcon />}
-          variant="contained"
           onClick={handleSendMessage}
         >
-          Send
-        </Button>
+          <SendIcon />
+        </IconButton>
       </Box>
     </>
   );

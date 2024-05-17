@@ -1,18 +1,23 @@
 import { useChatMessages } from "@chainlit/react-client";
 import { Box, Card, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import ReactMarkdown from "react-markdown";
 import PlutoIcon from "../PlutoIcon";
 import FormatCode from "../FormatCode";
+import { useRef, useEffect } from "react";
 const MessageCard = () => {
   const { messages } = useChatMessages();
-
+  const currentMsg = useRef(null);
+  useEffect(() => {
+    if (currentMsg.current) {
+      currentMsg.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
   return (
     <>
-      <Box mb={"5rem "}>
+      <Box mb={"5rem"}>
         {messages.map((msg, index) => (
           <>
-            <Box key={index} sx={{ width: "100%" }}>
+            <Box key={index} sx={{ width: "100%" }} pb="1rem">
               <Grid container spacing={2} justifyContent={"center"}>
                 <Grid
                   item
@@ -30,13 +35,14 @@ const MessageCard = () => {
                 <Grid item xs={9}>
                   <Card
                     sx={{
-                      padding: "1rem",
                       paddingLeft: "2rem",
                       fontSize: "1.3rem",
                       my: 1,
+                      backgroundColor: msg.name === "user" ? "#dbfbff" : "",
                     }}
                     className="message-card"
-                    elevation={3}
+                    elevation={msg.name === "user" ? 1 : 3}
+                    ref={index === messages.length - 1 ? currentMsg : null}
                   >
                     <FormatCode markdownContent={msg.output} />
                   </Card>

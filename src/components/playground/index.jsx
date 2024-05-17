@@ -7,7 +7,7 @@ import "./index.css";
 const Playground = () => {
   return (
     <>
-      <Box justifyContent="center">
+      <Box pb="2rem" justifyContent="center">
         <MessageCard />
       </Box>
 

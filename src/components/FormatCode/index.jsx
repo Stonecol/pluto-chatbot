@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import ReactMarkdown from "react-markdown";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -27,7 +28,10 @@ const FormatCode = ({ markdownContent }) => {
                   <div>
                     <pre style={darkCodeStyle}>
                       <div
-                        style={{ display: "flex", justifyContent: "flex-end" }}
+                        style={{
+                          display: "flex",
+                          justifyContent: "end",
+                        }}
                       >
                         <button>copy</button>
                       </div>
