@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import ReactMarkdown from "react-markdown";
 import CopyToClipboard from "react-copy-to-clipboard";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FormatCode = ({ markdownContent }) => {
   const darkCodeStyle = {
@@ -12,6 +14,19 @@ const FormatCode = ({ markdownContent }) => {
     fontFamily: "monospace",
     overflowX: "auto",
   };
+
+  const notify = () =>
+    toast.success("Code copied!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
 
   return (
     <div>
@@ -24,24 +39,27 @@ const FormatCode = ({ markdownContent }) => {
               : "";
             if (!inline && language) {
               return (
-                <CopyToClipboard text={children && children.trim()}>
-                  <div>
-                    <pre style={darkCodeStyle}>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "end",
-                        }}
-                      >
-                        <button>copy</button>
-                      </div>
+                <>
+                  <CopyToClipboard text={children && children.trim()}>
+                    <div>
+                      <pre style={darkCodeStyle}>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "end",
+                          }}
+                        >
+                          <button onClick={notify}>copy</button>
+                        </div>
 
-                      <code className={className} {...props}>
-                        {children}
-                      </code>
-                    </pre>
-                  </div>
-                </CopyToClipboard>
+                        <code className={className} {...props}>
+                          {children}
+                        </code>
+                      </pre>
+                    </div>
+                  </CopyToClipboard>
+                  <ToastContainer />
+                </>
               );
             }
             return (
