@@ -18,9 +18,14 @@ const MessageCard = () => {
         {messages.map((msg, index) => (
           <>
             <Box key={index} sx={{ width: "100%" }} pb="1rem">
-              <Grid container spacing={2} justifyContent={"center"}>
+              <Grid
+                container
+                spacing={{ xs: 3.5, md: 1 }}
+                justifyContent={"center"}
+              >
                 <Grid
                   item
+                  md={0.5}
                   xs={0.5}
                   display="flex"
                   justifyContent="center"
@@ -32,16 +37,16 @@ const MessageCard = () => {
                     />
                   )}
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item md={9} xs={10}>
                   <Card
                     sx={{
                       paddingLeft: "2rem",
                       fontSize: "1.3rem",
                       my: 1,
-                      backgroundColor: msg.name === "user" ? "#dbfbff" : "",
+                      // backgroundColor: msg.name === "user" ? "#dbfbff" : "",
                     }}
                     className="message-card"
-                    elevation={msg.name === "user" ? 1 : 3}
+                    elevation={msg.name === "user" ? 1 : 4}
                     ref={index === messages.length - 1 ? currentMsg : null}
                   >
                     <FormatCode markdownContent={msg.output} />
@@ -49,6 +54,7 @@ const MessageCard = () => {
                 </Grid>
                 <Grid
                   item
+                  md={0.5}
                   xs={0.5}
                   display="flex"
                   justifyContent="center"

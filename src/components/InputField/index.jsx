@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import { useState } from "react";
-import { Button, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { v4 as uuidv4 } from "uuid";
 import { useChatInteract } from "@chainlit/react-client";

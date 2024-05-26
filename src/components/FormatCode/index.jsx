@@ -4,12 +4,15 @@ import ReactMarkdown from "react-markdown";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTheme } from "../../theme/ThemeContext";
 
 const FormatCode = ({ markdownContent }) => {
+  const { darkMode } = useTheme();
   const darkCodeStyle = {
-    backgroundColor: "#2d2d2d",
+    backgroundColor: "#1c1c1c",
     color: "#fff",
     padding: "1rem",
+    margin: "1rem",
     borderRadius: "0.5rem",
     fontFamily: "monospace",
     overflowX: "auto",
@@ -24,7 +27,7 @@ const FormatCode = ({ markdownContent }) => {
       pauseOnHover: true,
       draggable: false,
       progress: undefined,
-      theme: "light",
+      theme: darkMode ? "dark" : "light",
       transition: Bounce,
     });
 
