@@ -42,7 +42,7 @@ const InputField = () => {
             fontSize: {
               xs: "2.8rem",
               sm: "3rem",
-              md: "3.6rem",
+              md: "3.5rem",
             },
           }}
         />
