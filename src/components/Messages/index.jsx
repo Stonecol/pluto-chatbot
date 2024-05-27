@@ -40,12 +40,15 @@ const MessageCard = () => {
                 <Grid item md={9} xs={10}>
                   <Card
                     sx={{
-                      paddingLeft: "2rem",
-                      fontSize: "1.3rem",
+                      px: "1.5rem",
+                      fontSize: {
+                        xs: "1rem",
+                        sm: "1.2rem",
+                        md: "1.25rem",
+                      },
                       my: 1,
                       // backgroundColor: msg.name === "user" ? "#dbfbff" : "",
                     }}
-                    className="message-card"
                     elevation={msg.name === "user" ? 1 : 4}
                     ref={index === messages.length - 1 ? currentMsg : null}
                   >

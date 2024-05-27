@@ -35,7 +35,16 @@ const InputField = () => {
     <>
       <Box sx={{ display: "flex", alignItems: "flex-end" }}>
         <TravelExploreOutlinedIcon
-          sx={{ color: "#1976d2", mr: 1, my: 0.5, fontSize: "3.5rem" }}
+          sx={{
+            color: "#1976d2",
+            mr: 1,
+            my: 0.5,
+            fontSize: {
+              xs: "2.8rem",
+              sm: "3rem",
+              md: "3.6rem",
+            },
+          }}
         />
         <TextField
           id="input-with-sx"
@@ -47,14 +56,30 @@ const InputField = () => {
             setUserInput(e.target.value);
           }}
           onKeyDown={(e) => handleEnter(e)}
-          inputProps={{ style: { fontSize: "1.4rem" } }}
+          inputProps={{
+            style: {
+              fontSize: {
+                xs: "1.4rem",
+                sm: "1.4rem",
+                md: "1.5rem",
+              },
+            },
+          }}
         />
         <IconButton
           sx={{
             mx: "1rem",
-            height: "3.4rem",
-            width: "3.4rem",
-            mb: "0.3rem",
+            height: {
+              xs: "2.8rem",
+              sm: "2.9rem",
+              md: "3.4rem",
+            },
+            width: {
+              xs: "2.8rem",
+              sm: "2.9rem",
+              md: "3.4rem",
+            },
+            mb: "0.25rem",
             backgroundColor: "primary.main",
             color: "white",
             "&:hover": {
