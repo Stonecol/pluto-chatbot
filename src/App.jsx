@@ -17,7 +17,7 @@ import { ThemeProvider, useTheme } from "./theme/ThemeContext";
 import { lightTheme, darkTheme } from "./theme/theme";
 import DarkModeToggle from "./components/DarkModeToggle";
 
-const CHAINLIT_SERVER = "https://api-pluto-backend.onrender.com";
+const CHAINLIT_SERVER = import.meta.env.VITE_PLUTO_BACKEND;
 const userEnv = {};
 
 const apiClient = new ChainlitAPI(CHAINLIT_SERVER);
