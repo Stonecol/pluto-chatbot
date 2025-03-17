@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import TravelExploreOutlinedIcon from "@mui/icons-material/TravelExploreOutlined";
 import { useState } from "react";

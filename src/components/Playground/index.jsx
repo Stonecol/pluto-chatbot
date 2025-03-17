@@ -7,7 +7,6 @@ import { useTheme } from "../../theme/ThemeContext";
 
 const Playground = () => {
   const { darkMode } = useTheme();
-  console.log(darkMode);
   return (
     <>
       <Box pb="2rem" justifyContent="center">

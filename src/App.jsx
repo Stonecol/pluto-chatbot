@@ -30,17 +30,13 @@ function App() {
     if (session?.socket.connected) {
       return;
     }
-    fetch(apiClient.buildEndpoint("/custom-auth"))
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        connect({
-          client: apiClient,
-          userEnv,
-          accessToken: `Bearer: ${data.token}`,
-        });
+    fetch(apiClient.buildEndpoint("/custom-auth"), {
+      credentials: "include",
+    }).then(() => {
+      connect({
+        userEnv,
       });
+    });
   }, [connect]);
 
   const ThemeConsumer = () => {
