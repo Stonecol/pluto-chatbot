@@ -61,7 +61,6 @@ const FormatCode = ({ markdownContent }) => {
                       </pre>
                     </div>
                   </CopyToClipboard>
-                  <ToastContainer />
                 </>
               );
             }
