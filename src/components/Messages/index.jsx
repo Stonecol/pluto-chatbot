@@ -23,15 +23,25 @@ const MessageCard = () => {
   const flatMessages = useMemo(() => {
     return flattenMessages(messages, (m) => m.type.includes("message"));
   }, [messages]);
-  const currentMsg = useRef(null);
+  const scrollContainerRef = useRef(null);
+
   useEffect(() => {
-    if (currentMsg.current) {
-      currentMsg.current.scrollIntoView({ behavior: "smooth" });
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.scrollTop = scrollContainer.scrollHeight;
     }
   }, [messages]);
   return (
     <>
-      <Box mb={"5rem"}>
+      <Box
+        mb="5rem"
+        ref={scrollContainerRef}
+        sx={{
+          maxHeight: "calc(100vh - 150px)", // Adjust based on layout
+          overflowY: "auto",
+          px: 2,
+        }}
+      >
         {flatMessages.map((msg, index) => (
           <Box key={index} sx={{ width: "100%" }} pb="1rem">
             <Grid
@@ -66,7 +76,7 @@ const MessageCard = () => {
                     // backgroundColor: msg.name === "user" ? "#dbfbff" : "",
                   }}
                   elevation={msg.name === "user" ? 1 : 4}
-                  ref={index === messages.length - 1 ? currentMsg : null}
+                  // ref={index === messages.length - 1 ? currentMsg : null}
                 >
                   <FormatCode markdownContent={msg.output} />
                 </Card>
