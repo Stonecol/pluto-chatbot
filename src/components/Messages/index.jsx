@@ -37,7 +37,7 @@ const MessageCard = () => {
         mb="5rem"
         ref={scrollContainerRef}
         sx={{
-          maxHeight: "calc(100vh - 150px)", // Adjust based on layout
+          maxHeight: "calc(100vh - 200px)",
           overflowY: "auto",
           px: 2,
         }}
