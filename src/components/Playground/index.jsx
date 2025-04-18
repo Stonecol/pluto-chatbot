@@ -41,7 +41,6 @@ const Playground = () => {
       >
         <InputField />
       </Box>
-      <ToastContainer />
     </>
   );
 };

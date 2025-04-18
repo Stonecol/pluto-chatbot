@@ -16,6 +16,7 @@ import {
 import { ThemeProvider, useTheme } from "./theme/ThemeContext";
 import { lightTheme, darkTheme } from "./theme/theme";
 import DarkModeToggle from "./components/DarkModeToggle";
+import { ToastContainer } from "react-toastify";
 
 const CHAINLIT_SERVER = import.meta.env.VITE_PLUTO_BACKEND;
 const userEnv = {};
@@ -52,6 +53,7 @@ function App() {
             onChange={toggleDarkMode}
           />
         </Box>
+        <ToastContainer />
         <Playground />
       </MuiThemeProvider>
     );
